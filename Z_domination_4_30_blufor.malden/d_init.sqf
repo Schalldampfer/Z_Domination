@@ -569,7 +569,7 @@ if (hasInterface) then {
 #ifndef __TT__
 	{
 		[format ["d_wreck_service%1", _forEachIndex], _x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] == "d_wreck_rep"});
+	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 11] == "d_wreck_rep"});
 	if (!isNil "d_jet_trigger") then {
 		["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	};
@@ -581,7 +581,7 @@ if (hasInterface) then {
 	};
 	{
 		[format ["d_Ammobox_Reload%1", _forEachIndex],_x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
-	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
+	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 	if (d_carrier) then {
 		["d_service_point", d_serviceall_trigger_5,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
@@ -678,7 +678,7 @@ if (hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1826", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x, _x];
-	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_respawn_point"});
+	} forEach (_allmissobjs select {(str _x) select [0, 15] isEqualTo "d_respawn_point"});
 
 	if (d_with_ranked) then {
 		if (d_rhs) then {

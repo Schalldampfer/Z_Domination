@@ -196,17 +196,13 @@ if (d_with_ranked) then {
 		player addMagazines [_magp, 6];
 		player addWeapon _weapp;
 	};
-
-	player setVariable ["d_pprimweap", primaryWeapon player];
-	player setVariable ["d_psecweap", secondaryWeapon player];
-	player setVariable ["d_phandgweap", handgunWeapon player];
-	player setVariable ["d_pprimweapitems", primaryWeaponItems player];
-	player setVariable ["d_psecweapitems", secondaryWeaponItems player];
-	player setVariable ["d_phandgweapitems", handgunItems player];
+	
 	player addEventhandler ["Put", {call d_fnc_store_rwitems}];
 
 	player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedman}];
 };
+
+call d_fnc_store_rwitems;
 
 if (d_with_ranked || {d_database_found}) then {
 	d_sm_p_pos = nil;
@@ -342,7 +338,7 @@ d_points_needed_16 = (d_points_needed # 6) + 30000;
 	if (!isNil "d_jet_trigger") then {
 		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1];
 	};
-	private _allmhs = (allMissionObjects "Land_HelipadSquare_F") + (allMissionObjects "Land_HelipadEmpty_F");
+	private _allmhs = allMissionObjects "HeliH";
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1];
 	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
@@ -402,7 +398,7 @@ d_points_needed_16 = (d_points_needed # 6) + 30000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log ["Internal D Version: 4.30"];
+diag_log ["Internal D Version: 4.32"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -828,23 +824,23 @@ if (isNil "d_cas_plane_avail") then {
 player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 player addEventhandler["InventoryClosed", {_this call d_fnc_inventoryclosed}];
 
-if (!d_with_ace || {d_with_ranked}) then {
-	[missionNamespace, "arsenalOpened", {
-		_this call d_fnc_arsenalopened;
-	}] call BIS_fnc_addScriptedEventHandler;
+//if (!d_with_ace || {d_with_ranked}) then {
+[missionNamespace, "arsenalOpened", {
+	_this call d_fnc_arsenalopened;
+}] call BIS_fnc_addScriptedEventHandler;
 
-	[missionNamespace, "arsenalClosed", {
-		call d_fnc_arsenalclosed;
-	}] call BIS_fnc_addScriptedEventHandler;
-} else {
-	["ace_arsenal_displayOpened", {
-		_this call d_fnc_arsenalopened;
-	}] call CBA_fnc_addEventHandler;
+[missionNamespace, "arsenalClosed", {
+	call d_fnc_arsenalclosed;
+}] call BIS_fnc_addScriptedEventHandler;
+//} else {
+//	["ace_arsenal_displayOpened", {
+//		_this call d_fnc_arsenalopened;
+//	}] call CBA_fnc_addEventHandler;
 
-	["ace_arsenal_displayClosed", {
-		_this call d_fnc_arsenalopened;
-	}] call CBA_fnc_addEventHandler;
-};
+//	["ace_arsenal_displayClosed", {
+//		_this call d_fnc_arsenalopened;
+//	}] call CBA_fnc_addEventHandler;
+//};
 
 player addEventhandler ["HandleRating", {
 	if ((_this select 1) < 0) then {0} else {_this select 1}

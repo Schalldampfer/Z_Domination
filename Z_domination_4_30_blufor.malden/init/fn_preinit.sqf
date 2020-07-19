@@ -177,8 +177,103 @@ d_e_marker_color_alpha = 1.3;
 d_e_marker_color_alpha = 0.8;
 #endif
 
+#ifdef __ALTIS__
 #include "sm_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "sm_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "sm_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "sm_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __IFA3LITE__
+#include "sm_bonus_vec_ar_ifa3.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "sm_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __GMCWG__
+#include "sm_bonus_vec_ar_gmcwg.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "sm_bonus_vec_ar_tanoa.sqf"
+#endif
+#ifdef __TTALTIS__
+#include "sm_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "sm_bonus_vec_ar_tt_tanoa.sqf"
+#endif
+#ifdef __TTMALDEN__
+#include "sm_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TANOA__
+#include "sm_bonus_vec_ar_tanoa.sqf"
+#endif
+#ifdef __STRATIS__
+#include "sm_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __MALDEN__
+#include "sm_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __RHS__
+#include "sm_bonus_vec_ar_rhs.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "sm_bonus_vec_ar_uns.sqf"
+#endif
+
+#ifdef __ALTIS__
 #include "mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "mt_bonus_vec_ar_tanoa.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __GMCWG__
+#include "mt_bonus_vec_ar_gmcwg.sqf"
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "mt_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "mt_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "mt_bonus_vec_ar_cup.sqf"
+#endif
+#ifdef __IFA3LITE__
+#include "mt_bonus_vec_ar_ifa3.sqf"
+#endif
+#ifdef __TTALTIS__
+#include "mt_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TTMALDEN__
+#include "mt_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "mt_bonus_vec_ar_tt_tanoa.sqf"
+#endif
+#ifdef __TANOA__
+#include "mt_bonus_vec_ar_tanoa.sqf"
+#endif
+#ifdef __STRATIS__
+#include "mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __MALDEN__
+#include "mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __RHS__
+#include "mt_bonus_vec_ar_rhs.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "mt_bonus_vec_ar_uns.sqf"
+#endif
 
 #ifndef __TT__
 d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
@@ -608,6 +703,9 @@ if (isServer) then {
 	d_allmen_W = [
 		#include "d_allmen_B_RHS.sqf"
 	];
+	d_allmen_E = [
+		#include "d_allmen_O_RHS.sqf"
+	];
 #endif
 #ifdef __IFA3LITE__
 	{
@@ -634,7 +732,55 @@ if (isServer) then {
 
 	d_specops_E = [
 //#include "d_demon_O_zombie.sqf"
+#ifdef __ALTIS__
 #include "d_specops_O_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_specops_O_livonia.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __GMCWG__
+if (!d_gmcwgwinter) then {
+#include "d_specops_O_gmcwg.sqf"
+} else {
+#include "d_specops_O_gmcwgw.sqf"
+}
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "d_specops_O_CUP_CHER.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "d_specops_O_CUP_TAKI.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "d_specops_O_CUP_SLA.sqf"
+#endif
+#ifdef __IFA3LITE__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __TTALTIS__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "d_specops_O_tanoa.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_specops_O_tanoa.sqf"
+#endif
+#ifdef __STRATIS__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __MALDEN__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "d_specops_O_uns.sqf"
+#endif
 	];
 	
 #ifdef __GMCWG__
@@ -665,28 +811,121 @@ if (isServer) then {
 		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
 	};
 	
+#ifdef __RHS__
+	d_specops_E = [
+		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_2mg"] call d_fnc_GetConfigGroup,
+		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_sniper"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_mg_sniper"] call d_fnc_GetConfigGroup
+	];
+#endif
 	d_specops_G = [["I_G_Soldier_exp_F", "I_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_medic_F"]];
 
+	d_sabotage_E = [["O_recon_exp_F"]];
 	d_sabotage_W = [["B_recon_exp_F"]];
 	d_sabotage_G = [["I_diver_exp_F"]];
 #ifdef __CUP__
+	d_sabotage_E = [["CUP_O_RUS_Saboteur_Autumn", "CUP_O_RUS_SpecOps_Autumn"]];
 	d_sabotage_W = [["CUP_B_US_SpecOps", "CUP_B_FR_Soldier_Exp"]];
 	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
 #endif
 #ifdef __RHS__
+	d_sabotage_E = [["rhs_vmf_recon_rifleman_scout_akm", "rhs_vmf_recon_sergeant"]];
 	d_sabotage_W = [["rhsusf_socom_marsoc_cso_breacher", "rhsusf_socom_marsoc_cso"]];
 	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
 #endif
-	d_sniper_E = [["East","Ryanzombiesfactionopfor","Ryanzombiesgroupspideropfor","Ryanzombiesgroupspider3opfor"] call d_fnc_GetConfigGroup];
-	d_sabotage_E = [["East","Ryanzombiesfactionopfor","RyanzombiesgroupCrawleropfor","RyanzombiesgroupCrawler3opfor"] call d_fnc_GetConfigGroup];
-	//d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup];
-	//d_sabotage_E = [["O_recon_exp_F"]];
+#ifdef __GMCWG__
+	d_sabotage_E = [[["gm_gc_army_demolition_mpiaks74n_80_str"], ["gm_gc_army_demolition_mpiaks74n_80_win"]] select d_gmcwgwinter];
+	d_sabotage_W = [["gm_ge_army_demolition_g3a4_80_ols"]];
+	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
+	
+	d_sniper_E = [[["gm_gc_army_squadleader_mpiak74n_80_str", "gm_gc_army_rifleman_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win", "gm_gc_army_rifleman_mpiak74n_80_win"]] select d_gmcwgwinter];
+	d_sniper_W = [[["gm_ge_army_squadleader_g3a3_p2a1_80_ols", "gm_ge_army_rifleman_g3a3_80_ols"], ["gm_ge_army_squadleader_g3a3_p2a1_parka_80_win", "gm_ge_army_rifleman_g3a3_parka_80_win"]] select d_gmcwgwinter];
+#endif
+
+#ifdef __CUP_CHERNARUS__
+	d_sniper_E = [["East","CUP_O_RU","Infantry","CUP_O_RU_SniperTeam_VDV_M_EMR"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_USMC","Infantry","CUP_B_USMC_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_NAPA","Infantry","CUP_I_NAPA_GrpInf_TeamSniper"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __CUP_TAKISTAN__
+	d_sniper_E = [["East","CUP_O_TK","Infantry","CUP_O_TK_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_TK_GUE","Infantry","CUP_I_TK_GUE_SniperTeam"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __CUP_SARA__
+	d_sniper_E = [["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_SniperTeam_Desert"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_RACS","Infantry","CUP_I_RACS_SniperTeam"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __IFA3LITE__
+	d_sniper_E = [["East","LIB_RKKA","Infantry","LIB_SOV_sniper_team"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","LIB_WEHRMACHT","Infantry","LIB_GER_sniper_team"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","LIB_US_ARMY","Infantry","LIB_US_Sniper_Team"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __RHS__
+	d_sniper_E = [["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_sniper"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad_sniper"] call d_fnc_GetConfigGroup];
+	d_sniper_G = [["Indep","rhssaf_faction_army","rhssaf_group_army_m10_digital_infantry","rhssaf_group_army_m10_digital_infantry_squad_sniper"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __UNSUNG__
+	d_sniper_E = [["uns_men_VC_mainforce_Rmrk", "uns_men_VC_mainforce_Roff"]];
+	d_sabotage_E = [["uns_men_VC_mainforce_68_Roff","uns_men_VC_mainforce_68_Ra1", "uns_men_VC_mainforce_68_Ra2", "uns_men_VC_mainforce_68_Rmg"]];
+#endif
 
 	d_veh_a_E = [
-#include "d_veh_a_O_zombie.sqf"
-//#include "d_veh_a_O_default.sqf"
+#ifdef __ALTIS__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_veh_a_O_tanoa.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __GMCWG__
+#include "d_veh_a_O_gmcwg.sqf"
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "d_veh_a_O_CUP_CHER.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "d_veh_a_O_CUP_TAKI.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "d_veh_a_O_CUP_SARA.sqf"
+#endif
+#ifdef __IFA3LITE__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __TTALTIS__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "d_veh_a_O_tanoa.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_veh_a_O_tanoa.sqf"
+#endif
+#ifdef __STRATIS__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __MALDEN__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "d_veh_a_O_uns.sqf"
+#endif
 	];
 
+#ifdef __GMCWG__
+	if (d_gmcwgwinter) then {
+		d_veh_a_E = [
+			#include "d_veh_a_O_gmcwgwin.sqf"
+		];
+	};
+#endif
 	d_veh_a_W = [
 #ifndef __IFA3LITE__
 		#include "d_veh_a_B_default.sqf"
@@ -698,12 +937,48 @@ if (isServer) then {
 	d_veh_a_W = [
 		#include "d_veh_a_B_RHS.sqf"
 	];
+	d_veh_a_E = [
+		#include "d_veh_a_O_RHS.sqf"
+	];
 #endif
-
+		
 	d_veh_a_G = [
 		#include "d_veh_a_G_default.sqf"
 	];
 
+#ifdef __ALTIS__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
+#ifdef __LIVONIA__
+	d_arti_observer_E = [["O_T_Recon_JTAC_F"]];
+#endif
+#ifdef __ROSCHE__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
+#ifdef __GMCWG__
+	d_arti_observer_E = [[["gm_gc_army_squadleader_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win"]] select d_gmcwgwinter];
+#endif
+#ifdef __CUP_CHERNARUS__
+	d_arti_observer_E = [["CUP_O_RUS_SpecOps_Scout_Autumn"]];
+#endif
+#ifdef __CUP_TAKISTAN__
+	d_arti_observer_E = [["CUP_O_RUS_SpecOps_Scout_Autumn"]];
+#endif
+#ifdef __CUP_SARA__
+	d_arti_observer_E = [["CUP_O_sla_Officer"]];
+#endif
+#ifdef __IFA3LITE__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
+#ifdef __TANOA__
+	d_arti_observer_E = [["O_T_Recon_JTAC_F"]];
+#endif
+#ifdef __STRATIS__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
+#ifdef __MALDEN__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
 #ifndef __IFA3LITE__
 	d_arti_observer_W = [["B_recon_JTAC_F"]];
 #else
@@ -711,8 +986,11 @@ if (isServer) then {
 #endif
 #ifdef __RHS__
 	d_arti_observer_W = [["rhsusf_army_ocp_jfo"], ["rhsusf_army_ucp_fso"], ["rhsusf_usmc_marpat_d_fso"], ["rhsusf_usmc_marpat_d_jfo"]];
+	d_arti_observer_E = [["rhs_vmf_recon_rifleman_scout_akm"], ["rhs_vmf_recon_rifleman_scout"]];
 #endif
-	d_arti_observer_E = [["East","Ryanzombiesfactionopfor","Ryanzombiesgroupdemonopfor","Ryanzombiesgroupdemon3opfor"] call d_fnc_GetConfigGroup];
+#ifdef __UNSUNG__
+	d_arti_observer_E = [["uns_men_VC_mainforce_68_RTO"]];
+#endif
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
 
 	if (isNil "d_number_attack_planes") then {
@@ -869,7 +1147,42 @@ if (isServer) then {
 		"I_Plane_Fighter_03_CAS_F";
 #endif
 
+#ifdef __ALTIS__
 #include "d_compositions_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "d_compositions_CUP_Chernarus.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "d_compositions_CUP_Takistan.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "d_compositions_CUP_Chernarus.sqf"
+#endif
+//#ifdef __GMCWG__
+// no compositions
+//#endif
+//#ifdef __IFA3LITE__
+// no compositions
+//#endif
+#ifdef __TT__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __STRATIS__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __MALDEN__
+#include "d_compositions_default.sqf"
+#endif
 
 	// max men for main target clear
 	d_man_count_for_target_clear = 6;
@@ -1040,7 +1353,48 @@ d_base_apc_vec =
 
 	d_wreck_cur_ar = [];
 
+#ifdef __ALTIS__
 #include "d_sm_classes_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_sm_classes_default.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "d_sm_classes_default.sqf"
+#endif
+#ifdef __GMCWG__
+#include "d_sm_classes_gmcwg.sqf"
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "d_sm_classes_CUP.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "d_sm_classes_CUP.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "d_sm_classes_CUP.sqf"
+#endif
+#ifdef __IFA3LITE__
+#include "d_sm_classes_ifa3.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_sm_classes_default.sqf"
+#endif
+#ifdef __STRATIS__
+#include "d_sm_classes_default.sqf"
+#endif
+#ifdef __MALDEN__
+#include "d_sm_classes_default.sqf"
+#endif
+#ifdef __TT__
+#include "d_sm_classes_default.sqf"
+#endif
+#ifdef __RHS__
+#include "d_sm_classes_rhs.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "d_sm_classes_uns.sqf"
+#endif
 
 	d_intel_unit = objNull;
 
@@ -1203,12 +1557,115 @@ d_base_apc_vec =
 		case "G": {["I_Heli_light_03_F"]};
 	};
 
+#ifdef __ALTIS__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
 		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
 		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
+#endif
+#ifdef __ROSCHE__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __GMCWG__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {
+			["gm_gc_airforce_l410s_salon","gm_gc_airforce_l410t"]
+		};
+		case "W": {[]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __TANOA__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __LIVONIA__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __STRATIS__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __MALDEN__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __IFA3LITE__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["LIB_RBAF_Ju87"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __TT__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __CUP_CHERNARUS__
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["CUP_O_MI6T_RU"]};
+		case "W": {["B_Heli_Light_01_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __CUP_SARA__
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["CUP_O_Mi8_SLA_1"]};
+		case "W": {["B_Heli_Light_01_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __CUP_TAKISTAN__
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["CUP_O_AN2_TK"]};
+		case "W": {["B_Heli_Light_01_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __RHS__
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["RHS_Mi8MTV3_vvsc"]};
+		case "W": {["rhsusf_CH53E_USMC"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __UNSUNG__
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["uns_an2"]};
+		case "W": {["B_Heli_Light_01_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
 	d_light_attack_chopper = switch (d_enemy_side_short) do {
@@ -1367,7 +1824,49 @@ d_base_apc_vec =
 		"C_Tractor_01_F", 0.10
 	];
 	
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_vehicles_weighted =
+#ifdef __ALTIS__
+		_civVehiclesWeightedCityWealthHigh;
+#endif
+#ifdef __CUP_CHERNARUS__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __CUP_TAKISTAN__
+		_civVehiclesWeightedRuralCupRemote;
+#endif
+#ifdef __CUP_ZARGABAD__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __CUP_SARA__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __IFA3LITE__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __TANOA__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __STRATIS__
+		_civVehiclesWeightedCityWealthHigh;
+#endif
+#ifdef __MALDEN__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __ROSCHE__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __LIVONIA__
+		_civVehiclesWeightedRuralLivonia;
+#endif
+#ifdef __TT__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __GMCWG__
+		_civVehiclesWeightedRuralGmcwg;
+#endif
+#ifdef __UNSUNG__
+		_civVehiclesWeightedRuraluns;
+#endif
 };
 
 	//civilian faces
@@ -1440,7 +1939,49 @@ d_base_apc_vec =
 	//MaskHead_A3
 	//BlackHead_A3
 
-	d_civ_faces = _mixedFaces;
+	d_civ_faces =
+#ifdef __ALTIS__
+		_mixedFaces;
+#endif
+#ifdef __CUP_CHERNARUS__
+		_mixedFaces;
+#endif
+#ifdef __CUP_TAKISTAN__
+		(_greekFaces + _persianFaces);
+#endif
+#ifdef __CUP_ZARGABAD__
+		(_greekFaces + _persianFaces);
+#endif
+#ifdef __CUP_SARA__
+		_mixedFaces;
+#endif
+#ifdef __IFA3LITE__
+		_mixedFaces;
+#endif
+#ifdef __TANOA__
+		_asianFaces;
+#endif
+#ifdef __STRATIS__
+		_mixedFaces;
+#endif
+#ifdef __MALDEN__
+		_mixedFaces;
+#endif
+#ifdef __ROSCHE__
+		_whiteFaces;
+#endif
+#ifdef __LIVONIA__
+		_whiteFaces;
+#endif
+#ifdef __TT__
+		_mixedFaces;
+#endif
+#ifdef __GMCWG__
+		_whiteFaces;
+#endif
+#ifdef __UNSUNG__
+		_asianFaces;
+#endif
 
 if (hasInterface) then {
 	__TRACE("preInit hasInterface")
@@ -1543,7 +2084,8 @@ if (hasInterface) then {
 	// the only vehicles that can load an ammo box are the transport choppers and MHQs__
 	d_check_ammo_load_vecs =
 #ifdef __OWN_SIDE_BLUFOR__
-	["B_Heli_Light_01_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F","CUP_B_M1133_MEV_Woodland","CUP_B_LAV25_HQ_USMC","CUP_B_M1133_MEV_Desert","CUP_B_UH1Y_UNA_USMC","I_Heli_light_03_unarmed_F","RHS_MELB_MH6M","rhsusf_M1232_usarmy_wd","gm_ge_army_m113a1g_command","gm_ge_army_fuchsa0_command","CUP_B_UH1D_GER_KSK","I_E_Heli_light_03_unarmed_F"];
+	["B_Heli_Light_01_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F","CUP_B_M1133_MEV_Woodland","CUP_B_LAV25_HQ_USMC","CUP_B_M1133_MEV_Desert","CUP_B_UH1Y_UNA_USMC","I_Heli_light_03_unarmed_F","RHS_MELB_MH6M","rhsusf_M1232_usarmy_wd","gm_ge_army_m113a1g_command","gm_ge_army_fuchsa0_command","CUP_B_UH1D_GER_KSK","I_E_Heli_light_03_unarmed_F",
+	"uns_M113_transport","uns_UH1H_m60"];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	call {
