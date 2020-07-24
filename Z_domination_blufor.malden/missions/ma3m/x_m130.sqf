@@ -1,4 +1,4 @@
-[_sm_vec, 1] spawn d_fnc_enabledynsim;// by Xeno
+// by Xeno
 //#define __DEBUG__
 #define THIS_FILE "x_m130.sqf"
 #include "..\..\x_setup.sqf"
