@@ -39,6 +39,14 @@ if (d_ao_markers == 1) then {
 	["d_main_target_radiotower", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 };
 
+d_delvecsmt append ([getPos _vec, getDir _vec, [
+	["Land_PillboxWall_01_6m_round_F",[-5.8418,-0.578125,0],270,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[-2.8291,6.4375,0],0,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[2.97852,6.44922,0],0,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[0.556641,-7.11914,0],180,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[7.28906,-0.634766,0],90,1,0,[],"","",true,false]
+]] call d_fnc_objectsMapper);
+
 if (d_with_dynsim == 0) then {
 	[_vec, 5] spawn d_fnc_enabledynsim;
 };

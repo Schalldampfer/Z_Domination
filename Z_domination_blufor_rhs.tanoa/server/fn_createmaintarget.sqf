@@ -155,11 +155,10 @@ private _doexit = false;
 d_bara_trig_ar = [];
 
 private _barcompo = [
-	["Land_PillboxWall_01_6m_round_F",[-5.8418,-0.578125,0],270,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[-2.8291,6.4375,0],0,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[2.97852,6.44922,0],0,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[0.556641,-7.11914,0],180,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[7.28906,-0.634766,0],90,1,0,[],"","",true,false]
+	["Land_HumanSkeleton_F",[-(random 2),   random 2,0],random 180,1,0,[],"","",true,false], 
+	["Land_HumanSkeleton_F",[-(random 2),-(random 2),0],random 360,1,0,[],"","",true,false], 
+	["Land_HumanSkeleton_F",[   random 2,-(random 2),0],random 180,1,0,[],"","",true,false], 
+	["Land_HumanSkeleton_F",[   random 2,   random 2,0],random 360,1,0,[],"","",true,false]
 ];
 
 for "_i" from 1 to d_num_barracks_objs do {

@@ -205,7 +205,7 @@ if (isServer) then {
 #endif
 #ifdef __RHS__
 	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
-		case "E": {["rhsgref_tla_btr60","rhsgref_tla_offroad_armed", "rhsgref_tla_offroad_at", "rhsgref_ins_gaz66_repair", "rhsgref_ins_gaz66_ammo", "rhsgref_ins_gaz66_r142", "rhsgref_tla_offroad_armed"]};
+		case "E": {["rhs_btr80a_vdv","rhs_btr80a_vdv", "rhs_btr70_vdv", "RHS_Ural_Repair_VDV_01", "RHS_Ural_Fuel_VDV_01", "RHS_Ural_VDV_01", "RHS_Ural_Zu23_VDV_01"]};
 		case "W": {["rhsusf_M1117_D","RHS_M6", "RHS_M2A3_BUSKIII", "rhsusf_M977A4_REPAIR_usarmy_d", "rhsusf_M977A4_AMMO_usarmy_d", "rhsusf_M978A4_usarmy_d", "RHS_M2A2_BUSKI"]};
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};
