@@ -124,12 +124,12 @@ if (isServer) then {
 #endif
 			];
 			d_footunits_guard_static = [
-				[4,2], // basic groups
-				[4,2] // specop groups
+				[3,1], // basic groups
+				[3,1] // specop groups
 			];
 			d_footunits_attack = [
-				[4,2], // basic groups
-				[4,2] // specop groups
+				[3,1], // basic groups
+				[3,1] // specop groups
 			];
 			d_vec_numbers_attack = [
 				[[1,1], 1], // tanks
@@ -164,20 +164,20 @@ if (isServer) then {
 			// almost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
-				[3,1], // basic groups
-				[3,1] // specop groups
+				[2,1], // basic groups
+				[2,1] // specop groups
 			];
 			d_footunits_patrol = [
+				[2,1], // basic groups
+				[2,1] // specop groups
+			];
+			d_footunits_guard_static = [
 				[3,1], // basic groups
 				[3,1] // specop groups
 			];
-			d_footunits_guard_static = [
-				[3,2], // basic groups
-				[4,2] // specop groups
-			];
 			d_footunits_attack = [
-				[4,2], // basic groups
-				[4,2] // specop groups
+				[4,1], // basic groups
+				[4,1] // specop groups
 			];
 			d_vec_numbers_attack = [
 				[[1,0], 1], // tanks
@@ -224,7 +224,7 @@ if (isServer) then {
 				[4,2] // specop groups
 			];
 			d_footunits_attack = [
-				[6,2], // basic groups
+				[4,2], // basic groups
 				[4,2] // specop groups
 			];
 			d_vec_numbers_attack = [
