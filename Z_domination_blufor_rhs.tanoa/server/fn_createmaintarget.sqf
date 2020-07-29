@@ -204,6 +204,10 @@ for "_i" from 1 to d_num_barracks_objs do {
 	
 	d_delvecsmt append ([getPos _vec, getDir _vec, _barcompo] call d_fnc_objectsMapper);
 
+	if (d_ao_markers == 1) then {
+		[format["d_main_target_barrack%1",_i], _poss, "ICON","ColorBlack", [0.4,0.4], localize "STR_DOM_MISSIONSTRING_521", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
+	};
+
 	sleep 0.1;
 };
 d_num_barracks_objs = count d_mt_barracks_obj_ar;

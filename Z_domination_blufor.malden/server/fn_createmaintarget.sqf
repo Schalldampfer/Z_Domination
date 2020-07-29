@@ -155,11 +155,10 @@ private _doexit = false;
 d_bara_trig_ar = [];
 
 private _barcompo = [
-	["Land_PillboxWall_01_6m_round_F",[-5.8418,-0.578125,0],270,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[-2.8291,6.4375,0],0,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[2.97852,6.44922,0],0,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[0.556641,-7.11914,0],180,1,0,[],"","",true,false], 
-	["Land_PillboxWall_01_6m_round_F",[7.28906,-0.634766,0],90,1,0,[],"","",true,false]
+	["Land_HumanSkeleton_F",[-(random 2),   random 2,0],random 180,1,0,[],"","",true,false], 
+	["Land_HumanSkeleton_F",[-(random 2),-(random 2),0],random 360,1,0,[],"","",true,false], 
+	["Land_HumanSkeleton_F",[   random 2,-(random 2),0],random 180,1,0,[],"","",true,false], 
+	["Land_HumanSkeleton_F",[   random 2,   random 2,0],random 360,1,0,[],"","",true,false]
 ];
 
 for "_i" from 1 to d_num_barracks_objs do {
@@ -204,6 +203,10 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_allbars pushBack _vec;
 	
 	d_delvecsmt append ([getPos _vec, getDir _vec, _barcompo] call d_fnc_objectsMapper);
+
+	if (d_ao_markers == 1) then {
+		[format["d_main_target_barrack%1",_i], _poss, "ICON","ColorBlack", [0.4,0.4], localize "STR_DOM_MISSIONSTRING_521", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
+	};
 
 	sleep 0.1;
 };
