@@ -17,7 +17,7 @@ while {true} do {
 						if (random 1 < 0.2) then {
 							_x setDamage 1;
 						};
-					} forEach _x;
+					} forEach units _x;
 				};
 			};
 			//prepare zombie movement
