@@ -106,6 +106,8 @@ if (isDedicated) then {
 		scriptName "spawn_initserver";
 		waitUntil {time > 0};
 		enableEnvironment [false, false];
+		
+		call compile preprocessFileLineNumbers "refreshZed.sqf";
 	};
 };
 

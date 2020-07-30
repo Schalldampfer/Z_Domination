@@ -146,13 +146,6 @@ call {
 	if (d_with_dynsim == 0) then {
 		(_this select 0) enableDynamicSimulation true;
 	};
-	_grp = _this select 0;
-	while {alive leader _grp} do {
-		sleep 5;
-		if (speed (leader _grp) < 0.5) then {
-		    doStop (leader _grp);
-		};
-	};
 };
 
 [_grp, _uinf, _vecs]
