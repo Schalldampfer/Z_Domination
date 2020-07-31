@@ -18,6 +18,11 @@ publicVariable "d_num_barracks_objs";
 __TRACE_1("","d_num_barracks_objs")
 if (d_num_barracks_objs == 0) then {
 	d_mt_barracks_down = true;
+	if (d_ao_markers == 1) then {
+		for "_i" from 1 to d_num_barracks_objs do {
+			deleteMarker format["d_main_target_barrack%1",_i];
+		};
+	};
 #ifndef __TT__
 	[51] call d_fnc_DoKBMsg;
 #else
