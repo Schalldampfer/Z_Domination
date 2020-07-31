@@ -15,6 +15,7 @@ while {true} do {
 					{
 						//randomly kill it
 						if (random 1 < 0.2) then {
+							_x switchMove "AinjPpneMstpSnonWrflDnon";
 							_x setDamage 1;
 							sleep (random 5);
 						};
